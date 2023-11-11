@@ -18,8 +18,8 @@ class Products {
 
 @JsonSerializable()
 class Data {
-  @JsonKey(name: "poducts")
-  List<Poduct> poducts;
+  @JsonKey(name: "products")
+  List<Product> poducts;
 
   Data({
     required this.poducts,
@@ -31,30 +31,34 @@ class Data {
 }
 
 @JsonSerializable()
-class Poduct {
+class Product {
   @JsonKey(name: "product_id")
   String productId;
   @JsonKey(name: "product_code")
   String productCode;
-  @JsonKey(name: "produc_name")
-  String producName;
-  @JsonKey(name: "poduct_image")
-  String poductImage;
-  @JsonKey(name: "poduct_discription")
-  String poductDiscription;
+  @JsonKey(name: "product_name")
+  String productName;
+  @JsonKey(name: "product_image")
+  String productImage;
+  @JsonKey(name: "price")
+  String price;
+  @JsonKey(name: "product_description")
+  String productDescription;
   @JsonKey(name: "categories")
   String categories;
 
-  Poduct({
+  Product({
+    required this.price,
     required this.productId,
     required this.productCode,
-    required this.producName,
-    required this.poductImage,
-    required this.poductDiscription,
+    required this.productName,
+    required this.productImage,
+    required this.productDescription,
     required this.categories,
   });
 
-  factory Poduct.fromJson(Map<String, dynamic> json) => _$PoductFromJson(json);
+  factory Product.fromJson(Map<String, dynamic> json) =>
+      _$ProductFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PoductToJson(this);
+  Map<String, dynamic> toJson() => _$ProductToJson(this);
 }

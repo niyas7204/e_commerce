@@ -18,33 +18,43 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() pickImageFromGallery,
+    required TResult Function(
+            List<TextEditingController> controllers, XFile? image)
+        uploadProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? pickImageFromGallery,
+    TResult? Function(List<TextEditingController> controllers, XFile? image)?
+        uploadProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? pickImageFromGallery,
+    TResult Function(List<TextEditingController> controllers, XFile? image)?
+        uploadProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
+    required TResult Function(_uploadProduct value) uploadProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult? Function(_uploadProduct value)? uploadProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult Function(_uploadProduct value)? uploadProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,35 +79,36 @@ class _$AddProductEventCopyWithImpl<$Res, $Val extends AddProductEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$pickImageFromGalleryImplCopyWith<$Res> {
+  factory _$$pickImageFromGalleryImplCopyWith(_$pickImageFromGalleryImpl value,
+          $Res Function(_$pickImageFromGalleryImpl) then) =
+      __$$pickImageFromGalleryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$AddProductEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$pickImageFromGalleryImplCopyWithImpl<$Res>
+    extends _$AddProductEventCopyWithImpl<$Res, _$pickImageFromGalleryImpl>
+    implements _$$pickImageFromGalleryImplCopyWith<$Res> {
+  __$$pickImageFromGalleryImplCopyWithImpl(_$pickImageFromGalleryImpl _value,
+      $Res Function(_$pickImageFromGalleryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
+  const _$pickImageFromGalleryImpl();
 
   @override
   String toString() {
-    return 'AddProductEvent.started()';
+    return 'AddProductEvent.pickImageFromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$pickImageFromGalleryImpl);
   }
 
   @override
@@ -106,27 +117,34 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() pickImageFromGallery,
+    required TResult Function(
+            List<TextEditingController> controllers, XFile? image)
+        uploadProduct,
   }) {
-    return started();
+    return pickImageFromGallery();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? pickImageFromGallery,
+    TResult? Function(List<TextEditingController> controllers, XFile? image)?
+        uploadProduct,
   }) {
-    return started?.call();
+    return pickImageFromGallery?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? pickImageFromGallery,
+    TResult Function(List<TextEditingController> controllers, XFile? image)?
+        uploadProduct,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (pickImageFromGallery != null) {
+      return pickImageFromGallery();
     }
     return orElse();
   }
@@ -134,39 +152,203 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
+    required TResult Function(_uploadProduct value) uploadProduct,
   }) {
-    return started(this);
+    return pickImageFromGallery(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult? Function(_uploadProduct value)? uploadProduct,
   }) {
-    return started?.call(this);
+    return pickImageFromGallery?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult Function(_uploadProduct value)? uploadProduct,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (pickImageFromGallery != null) {
+      return pickImageFromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements AddProductEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class _pickImageFromGallery implements AddProductEvent {
+  const factory _pickImageFromGallery() = _$pickImageFromGalleryImpl;
+}
+
+/// @nodoc
+abstract class _$$uploadProductImplCopyWith<$Res> {
+  factory _$$uploadProductImplCopyWith(
+          _$uploadProductImpl value, $Res Function(_$uploadProductImpl) then) =
+      __$$uploadProductImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<TextEditingController> controllers, XFile? image});
+}
+
+/// @nodoc
+class __$$uploadProductImplCopyWithImpl<$Res>
+    extends _$AddProductEventCopyWithImpl<$Res, _$uploadProductImpl>
+    implements _$$uploadProductImplCopyWith<$Res> {
+  __$$uploadProductImplCopyWithImpl(
+      _$uploadProductImpl _value, $Res Function(_$uploadProductImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? controllers = null,
+    Object? image = freezed,
+  }) {
+    return _then(_$uploadProductImpl(
+      controllers: null == controllers
+          ? _value._controllers
+          : controllers // ignore: cast_nullable_to_non_nullable
+              as List<TextEditingController>,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$uploadProductImpl implements _uploadProduct {
+  const _$uploadProductImpl(
+      {required final List<TextEditingController> controllers,
+      required this.image})
+      : _controllers = controllers;
+
+  final List<TextEditingController> _controllers;
+  @override
+  List<TextEditingController> get controllers {
+    if (_controllers is EqualUnmodifiableListView) return _controllers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_controllers);
+  }
+
+  @override
+  final XFile? image;
+
+  @override
+  String toString() {
+    return 'AddProductEvent.uploadProduct(controllers: $controllers, image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$uploadProductImpl &&
+            const DeepCollectionEquality()
+                .equals(other._controllers, _controllers) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_controllers), image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$uploadProductImplCopyWith<_$uploadProductImpl> get copyWith =>
+      __$$uploadProductImplCopyWithImpl<_$uploadProductImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickImageFromGallery,
+    required TResult Function(
+            List<TextEditingController> controllers, XFile? image)
+        uploadProduct,
+  }) {
+    return uploadProduct(controllers, image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickImageFromGallery,
+    TResult? Function(List<TextEditingController> controllers, XFile? image)?
+        uploadProduct,
+  }) {
+    return uploadProduct?.call(controllers, image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickImageFromGallery,
+    TResult Function(List<TextEditingController> controllers, XFile? image)?
+        uploadProduct,
+    required TResult orElse(),
+  }) {
+    if (uploadProduct != null) {
+      return uploadProduct(controllers, image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
+    required TResult Function(_uploadProduct value) uploadProduct,
+  }) {
+    return uploadProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult? Function(_uploadProduct value)? uploadProduct,
+  }) {
+    return uploadProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult Function(_uploadProduct value)? uploadProduct,
+    required TResult orElse(),
+  }) {
+    if (uploadProduct != null) {
+      return uploadProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _uploadProduct implements AddProductEvent {
+  const factory _uploadProduct(
+      {required final List<TextEditingController> controllers,
+      required final XFile? image}) = _$uploadProductImpl;
+
+  List<TextEditingController> get controllers;
+  XFile? get image;
+  @JsonKey(ignore: true)
+  _$$uploadProductImplCopyWith<_$uploadProductImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$AddProductState {
-  dynamic get imageFile => throw _privateConstructorUsedError;
+  StateResponse<XFile>? get imageFile => throw _privateConstructorUsedError;
+  StateResponse<dynamic> get addProductState =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddProductStateCopyWith<AddProductState> get copyWith =>
@@ -179,7 +361,9 @@ abstract class $AddProductStateCopyWith<$Res> {
           AddProductState value, $Res Function(AddProductState) then) =
       _$AddProductStateCopyWithImpl<$Res, AddProductState>;
   @useResult
-  $Res call({dynamic imageFile});
+  $Res call(
+      {StateResponse<XFile>? imageFile,
+      StateResponse<dynamic> addProductState});
 }
 
 /// @nodoc
@@ -196,12 +380,17 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
   @override
   $Res call({
     Object? imageFile = freezed,
+    Object? addProductState = null,
   }) {
     return _then(_value.copyWith(
       imageFile: freezed == imageFile
           ? _value.imageFile
           : imageFile // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as StateResponse<XFile>?,
+      addProductState: null == addProductState
+          ? _value.addProductState
+          : addProductState // ignore: cast_nullable_to_non_nullable
+              as StateResponse<dynamic>,
     ) as $Val);
   }
 }
@@ -214,7 +403,9 @@ abstract class _$$AddProductStateImplCopyWith<$Res>
       __$$AddProductStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({dynamic imageFile});
+  $Res call(
+      {StateResponse<XFile>? imageFile,
+      StateResponse<dynamic> addProductState});
 }
 
 /// @nodoc
@@ -229,9 +420,17 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageFile = freezed,
+    Object? addProductState = null,
   }) {
     return _then(_$AddProductStateImpl(
-      imageFile: freezed == imageFile ? _value.imageFile! : imageFile,
+      imageFile: freezed == imageFile
+          ? _value.imageFile
+          : imageFile // ignore: cast_nullable_to_non_nullable
+              as StateResponse<XFile>?,
+      addProductState: null == addProductState
+          ? _value.addProductState
+          : addProductState // ignore: cast_nullable_to_non_nullable
+              as StateResponse<dynamic>,
     ));
   }
 }
@@ -239,14 +438,17 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddProductStateImpl implements _AddProductState {
-  const _$AddProductStateImpl({required this.imageFile});
+  const _$AddProductStateImpl(
+      {required this.imageFile, required this.addProductState});
 
   @override
-  final dynamic imageFile;
+  final StateResponse<XFile>? imageFile;
+  @override
+  final StateResponse<dynamic> addProductState;
 
   @override
   String toString() {
-    return 'AddProductState(imageFile: $imageFile)';
+    return 'AddProductState(imageFile: $imageFile, addProductState: $addProductState)';
   }
 
   @override
@@ -254,12 +456,14 @@ class _$AddProductStateImpl implements _AddProductState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddProductStateImpl &&
-            const DeepCollectionEquality().equals(other.imageFile, imageFile));
+            (identical(other.imageFile, imageFile) ||
+                other.imageFile == imageFile) &&
+            (identical(other.addProductState, addProductState) ||
+                other.addProductState == addProductState));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(imageFile));
+  int get hashCode => Object.hash(runtimeType, imageFile, addProductState);
 
   @JsonKey(ignore: true)
   @override
@@ -270,11 +474,15 @@ class _$AddProductStateImpl implements _AddProductState {
 }
 
 abstract class _AddProductState implements AddProductState {
-  const factory _AddProductState({required final dynamic imageFile}) =
+  const factory _AddProductState(
+          {required final StateResponse<XFile>? imageFile,
+          required final StateResponse<dynamic> addProductState}) =
       _$AddProductStateImpl;
 
   @override
-  dynamic get imageFile;
+  StateResponse<XFile>? get imageFile;
+  @override
+  StateResponse<dynamic> get addProductState;
   @override
   @JsonKey(ignore: true)
   _$$AddProductStateImplCopyWith<_$AddProductStateImpl> get copyWith =>

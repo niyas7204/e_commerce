@@ -1,4 +1,6 @@
+import 'package:e_commerce/controllers/add_product/add_product_bloc.dart';
 import 'package:e_commerce/controllers/authentication_bloc/user_authentication_bloc.dart';
+import 'package:e_commerce/data/Dataprovider/upload_post_implimentation.dart';
 import 'package:e_commerce/data/Dataprovider/user_auth_implimentation.dart';
 import 'package:e_commerce/firebase_options.dart';
 import 'package:e_commerce/graphql/client/graphql_client.dart';
@@ -25,6 +27,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => AddProductBloc(UploadProductImplimentation()),
+        ),
         BlocProvider(
           create: (context) => UserAuthenticationBloc(UserAuthImplimentation()),
         ),
