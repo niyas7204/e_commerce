@@ -25,7 +25,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
     };
 
 Product _$ProductFromJson(Map<String, dynamic> json) => Product(
-      price: json['price'] as String,
+      price: json['price'] as num,
       productId: json['product_id'] as String,
       productCode: json['product_code'] as String,
       productName: json['product_name'] as String,

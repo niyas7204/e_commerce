@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC6ee50HsMTZ94uNOaFVbB9gcfbfDEEUnU',
-    appId: '1:165169370813:web:ec10de6c62acae36a889d4',
-    messagingSenderId: '165169370813',
-    projectId: 'e-commerce-95335',
-    authDomain: 'e-commerce-95335.firebaseapp.com',
-    storageBucket: 'e-commerce-95335.appspot.com',
-    measurementId: 'G-CQ8FJRCZQ2',
+    apiKey: 'AIzaSyA3YT4T0rzK1i_B2a63bA2Qu9crSiMsNRM',
+    appId: '1:448114235861:web:969c3eaffe2ee487a9855c',
+    messagingSenderId: '448114235861',
+    projectId: 'thecart-5add1',
+    authDomain: 'thecart-5add1.firebaseapp.com',
+    storageBucket: 'thecart-5add1.appspot.com',
+    measurementId: 'G-BYJYX8E4GQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCRdTzG0sFiQx_acMRVI5st19yy8PEXmv4',
-    appId: '1:165169370813:android:720372f4c7e9d07ca889d4',
-    messagingSenderId: '165169370813',
-    projectId: 'e-commerce-95335',
-    storageBucket: 'e-commerce-95335.appspot.com',
+    apiKey: 'AIzaSyDEMDcf8Rc6ObtojcphPpVnMM4l68SPUUQ',
+    appId: '1:448114235861:android:3c2da8aea9305977a9855c',
+    messagingSenderId: '448114235861',
+    projectId: 'thecart-5add1',
+    storageBucket: 'thecart-5add1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAXc_whwUvYreFccwh3QxDKDSEROACcFHA',
-    appId: '1:165169370813:ios:9aeacca509e08234a889d4',
-    messagingSenderId: '165169370813',
-    projectId: 'e-commerce-95335',
-    storageBucket: 'e-commerce-95335.appspot.com',
+    apiKey: 'AIzaSyAEiU-Ns87snWMNv5wFAc2nUYvsJK8l4wA',
+    appId: '1:448114235861:ios:0113a6c9a9092350a9855c',
+    messagingSenderId: '448114235861',
+    projectId: 'thecart-5add1',
+    storageBucket: 'thecart-5add1.appspot.com',
     iosBundleId: 'com.example.eCommerce',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAXc_whwUvYreFccwh3QxDKDSEROACcFHA',
-    appId: '1:165169370813:ios:538c47971c6e6ed9a889d4',
-    messagingSenderId: '165169370813',
-    projectId: 'e-commerce-95335',
-    storageBucket: 'e-commerce-95335.appspot.com',
+    apiKey: 'AIzaSyAEiU-Ns87snWMNv5wFAc2nUYvsJK8l4wA',
+    appId: '1:448114235861:ios:7277fc79fc7a0c21a9855c',
+    messagingSenderId: '448114235861',
+    projectId: 'thecart-5add1',
+    storageBucket: 'thecart-5add1.appspot.com',
     iosBundleId: 'com.example.eCommerce.RunnerTests',
   );
 }

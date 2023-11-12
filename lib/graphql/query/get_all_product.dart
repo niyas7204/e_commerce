@@ -31,8 +31,21 @@ class GetProductByCatogeryQuery {
     product_id
     product_image
     product_name
+    vender_id
   }
 }
 ''';
+  }
+}
+
+class GetAllCategories {
+  final String query;
+  GetAllCategories(this.query);
+  String get getAllcategoriesQuery {
+    return ''' query MyQuery {
+  products(where: {categories: {_regex: "$query"}}) {
+    categories
+  }
+}''';
   }
 }

@@ -5,5 +5,9 @@ import 'package:image_picker/image_picker.dart';
 abstract class UploadProductServices {
   Future<StateResponse<XFile?>> pickImageFromGallery();
   Future<StateResponse<String>> addImageToStorage({required XFile imagefile});
-  Future<StateResponse> uploadproduct({required Product product});
+  Future<StateResponse> uploadproduct({
+    required Product product,
+    required String userId,
+  });
+  Future<StateResponse<List<String>>> findCatorories({required String query});
 }

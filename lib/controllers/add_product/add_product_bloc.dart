@@ -44,31 +44,49 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
       final storeImageResult = await uploadProductServices.addImageToStorage(
           imagefile: event.image!);
       if (storeImageResult.status == StateStatus.success) {
-        final String uid = Uuid().v1().toString();
+        final String uid = const Uuid().v1().toString();
         final Product product = Product(
             productId: uid,
             productCode: event.controllers[1].text.trim(),
             productName: event.controllers[0].text.trim(),
             productImage: storeImageResult.data!,
-            price: event.controllers[2].text.trim(),
+            price: num.parse(event.controllers[2].text.trim()),
             productDescription: event.controllers[3].text.trim(),
             categories: event.controllers[4].text.trim());
-        final uploadProduct =
-            await uploadProductServices.uploadproduct(product: product);
-        if (uploadProduct.status == StateStatus.error) {
+        final uploadProduct = await uploadProductServices.uploadproduct(
+            product: product, userId: event.userId);
+        if (uploadProduct.status == StateStatus.success) {
+          for (var controller in event.controllers) {
+            controller.clear();
+          }
           emit(state.copyWith(
-              addProductState:
-                  StateResponse.error(storeImageResult.errorMessage)));
+              addProductState: StateResponse.success(uploadProduct.data)));
+          emit(state.copyWith(
+              imageFile: StateResponse.initial(),
+              addProductState: StateResponse.initial()));
         } else if (uploadProduct.status == StateStatus.error) {
           emit(state.copyWith(
               addProductState:
-                  StateResponse.error(storeImageResult.errorMessage)));
+                  StateResponse.error(uploadProduct.errorMessage)));
         }
       }
       if (storeImageResult.status == StateStatus.error) {
         emit(state.copyWith(
             addProductState:
                 StateResponse.error(storeImageResult.errorMessage)));
+      }
+    });
+    on<_getCategories>((event, emit) async {
+      emit(state.copyWith(getCategory: StateResponse.loading()));
+      final result =
+          await uploadProductServices.findCatorories(query: event.query);
+      if (result.status == StateStatus.success) {
+        emit(state.copyWith(
+            categories: result.data!,
+            getCategory: StateResponse.success(result.data)));
+      } else if (result.status == StateStatus.error) {
+        emit(state.copyWith(
+            getCategory: StateResponse.error(result.errorMessage)));
       }
     });
   }

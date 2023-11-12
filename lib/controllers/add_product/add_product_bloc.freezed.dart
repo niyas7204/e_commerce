@@ -19,23 +19,28 @@ mixin _$AddProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pickImageFromGallery,
-    required TResult Function(
-            List<TextEditingController> controllers, XFile? image)
+    required TResult Function(List<TextEditingController> controllers,
+            String userId, XFile? image)
         uploadProduct,
+    required TResult Function(String query) getCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickImageFromGallery,
-    TResult? Function(List<TextEditingController> controllers, XFile? image)?
+    TResult? Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
         uploadProduct,
+    TResult? Function(String query)? getCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickImageFromGallery,
-    TResult Function(List<TextEditingController> controllers, XFile? image)?
+    TResult Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
         uploadProduct,
+    TResult Function(String query)? getCategories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,18 +48,21 @@ mixin _$AddProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
     required TResult Function(_uploadProduct value) uploadProduct,
+    required TResult Function(_getCategories value) getCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
     TResult? Function(_uploadProduct value)? uploadProduct,
+    TResult? Function(_getCategories value)? getCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
     TResult Function(_uploadProduct value)? uploadProduct,
+    TResult Function(_getCategories value)? getCategories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,9 +126,10 @@ class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pickImageFromGallery,
-    required TResult Function(
-            List<TextEditingController> controllers, XFile? image)
+    required TResult Function(List<TextEditingController> controllers,
+            String userId, XFile? image)
         uploadProduct,
+    required TResult Function(String query) getCategories,
   }) {
     return pickImageFromGallery();
   }
@@ -129,8 +138,10 @@ class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickImageFromGallery,
-    TResult? Function(List<TextEditingController> controllers, XFile? image)?
+    TResult? Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
         uploadProduct,
+    TResult? Function(String query)? getCategories,
   }) {
     return pickImageFromGallery?.call();
   }
@@ -139,8 +150,10 @@ class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickImageFromGallery,
-    TResult Function(List<TextEditingController> controllers, XFile? image)?
+    TResult Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
         uploadProduct,
+    TResult Function(String query)? getCategories,
     required TResult orElse(),
   }) {
     if (pickImageFromGallery != null) {
@@ -154,6 +167,7 @@ class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
   TResult map<TResult extends Object?>({
     required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
     required TResult Function(_uploadProduct value) uploadProduct,
+    required TResult Function(_getCategories value) getCategories,
   }) {
     return pickImageFromGallery(this);
   }
@@ -163,6 +177,7 @@ class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
     TResult? Function(_uploadProduct value)? uploadProduct,
+    TResult? Function(_getCategories value)? getCategories,
   }) {
     return pickImageFromGallery?.call(this);
   }
@@ -172,6 +187,7 @@ class _$pickImageFromGalleryImpl implements _pickImageFromGallery {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
     TResult Function(_uploadProduct value)? uploadProduct,
+    TResult Function(_getCategories value)? getCategories,
     required TResult orElse(),
   }) {
     if (pickImageFromGallery != null) {
@@ -191,7 +207,8 @@ abstract class _$$uploadProductImplCopyWith<$Res> {
           _$uploadProductImpl value, $Res Function(_$uploadProductImpl) then) =
       __$$uploadProductImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<TextEditingController> controllers, XFile? image});
+  $Res call(
+      {List<TextEditingController> controllers, String userId, XFile? image});
 }
 
 /// @nodoc
@@ -206,6 +223,7 @@ class __$$uploadProductImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? controllers = null,
+    Object? userId = null,
     Object? image = freezed,
   }) {
     return _then(_$uploadProductImpl(
@@ -213,6 +231,10 @@ class __$$uploadProductImplCopyWithImpl<$Res>
           ? _value._controllers
           : controllers // ignore: cast_nullable_to_non_nullable
               as List<TextEditingController>,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -226,6 +248,7 @@ class __$$uploadProductImplCopyWithImpl<$Res>
 class _$uploadProductImpl implements _uploadProduct {
   const _$uploadProductImpl(
       {required final List<TextEditingController> controllers,
+      required this.userId,
       required this.image})
       : _controllers = controllers;
 
@@ -238,11 +261,13 @@ class _$uploadProductImpl implements _uploadProduct {
   }
 
   @override
+  final String userId;
+  @override
   final XFile? image;
 
   @override
   String toString() {
-    return 'AddProductEvent.uploadProduct(controllers: $controllers, image: $image)';
+    return 'AddProductEvent.uploadProduct(controllers: $controllers, userId: $userId, image: $image)';
   }
 
   @override
@@ -252,12 +277,13 @@ class _$uploadProductImpl implements _uploadProduct {
             other is _$uploadProductImpl &&
             const DeepCollectionEquality()
                 .equals(other._controllers, _controllers) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_controllers), image);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_controllers), userId, image);
 
   @JsonKey(ignore: true)
   @override
@@ -269,33 +295,38 @@ class _$uploadProductImpl implements _uploadProduct {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pickImageFromGallery,
-    required TResult Function(
-            List<TextEditingController> controllers, XFile? image)
+    required TResult Function(List<TextEditingController> controllers,
+            String userId, XFile? image)
         uploadProduct,
+    required TResult Function(String query) getCategories,
   }) {
-    return uploadProduct(controllers, image);
+    return uploadProduct(controllers, userId, image);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickImageFromGallery,
-    TResult? Function(List<TextEditingController> controllers, XFile? image)?
+    TResult? Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
         uploadProduct,
+    TResult? Function(String query)? getCategories,
   }) {
-    return uploadProduct?.call(controllers, image);
+    return uploadProduct?.call(controllers, userId, image);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickImageFromGallery,
-    TResult Function(List<TextEditingController> controllers, XFile? image)?
+    TResult Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
         uploadProduct,
+    TResult Function(String query)? getCategories,
     required TResult orElse(),
   }) {
     if (uploadProduct != null) {
-      return uploadProduct(controllers, image);
+      return uploadProduct(controllers, userId, image);
     }
     return orElse();
   }
@@ -305,6 +336,7 @@ class _$uploadProductImpl implements _uploadProduct {
   TResult map<TResult extends Object?>({
     required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
     required TResult Function(_uploadProduct value) uploadProduct,
+    required TResult Function(_getCategories value) getCategories,
   }) {
     return uploadProduct(this);
   }
@@ -314,6 +346,7 @@ class _$uploadProductImpl implements _uploadProduct {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
     TResult? Function(_uploadProduct value)? uploadProduct,
+    TResult? Function(_getCategories value)? getCategories,
   }) {
     return uploadProduct?.call(this);
   }
@@ -323,6 +356,7 @@ class _$uploadProductImpl implements _uploadProduct {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
     TResult Function(_uploadProduct value)? uploadProduct,
+    TResult Function(_getCategories value)? getCategories,
     required TResult orElse(),
   }) {
     if (uploadProduct != null) {
@@ -335,9 +369,11 @@ class _$uploadProductImpl implements _uploadProduct {
 abstract class _uploadProduct implements AddProductEvent {
   const factory _uploadProduct(
       {required final List<TextEditingController> controllers,
+      required final String userId,
       required final XFile? image}) = _$uploadProductImpl;
 
   List<TextEditingController> get controllers;
+  String get userId;
   XFile? get image;
   @JsonKey(ignore: true)
   _$$uploadProductImplCopyWith<_$uploadProductImpl> get copyWith =>
@@ -345,9 +381,158 @@ abstract class _uploadProduct implements AddProductEvent {
 }
 
 /// @nodoc
+abstract class _$$getCategoriesImplCopyWith<$Res> {
+  factory _$$getCategoriesImplCopyWith(
+          _$getCategoriesImpl value, $Res Function(_$getCategoriesImpl) then) =
+      __$$getCategoriesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$getCategoriesImplCopyWithImpl<$Res>
+    extends _$AddProductEventCopyWithImpl<$Res, _$getCategoriesImpl>
+    implements _$$getCategoriesImplCopyWith<$Res> {
+  __$$getCategoriesImplCopyWithImpl(
+      _$getCategoriesImpl _value, $Res Function(_$getCategoriesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$getCategoriesImpl(
+      query: null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$getCategoriesImpl implements _getCategories {
+  const _$getCategoriesImpl({required this.query});
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'AddProductEvent.getCategories(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$getCategoriesImpl &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$getCategoriesImplCopyWith<_$getCategoriesImpl> get copyWith =>
+      __$$getCategoriesImplCopyWithImpl<_$getCategoriesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickImageFromGallery,
+    required TResult Function(List<TextEditingController> controllers,
+            String userId, XFile? image)
+        uploadProduct,
+    required TResult Function(String query) getCategories,
+  }) {
+    return getCategories(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickImageFromGallery,
+    TResult? Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
+        uploadProduct,
+    TResult? Function(String query)? getCategories,
+  }) {
+    return getCategories?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickImageFromGallery,
+    TResult Function(List<TextEditingController> controllers, String userId,
+            XFile? image)?
+        uploadProduct,
+    TResult Function(String query)? getCategories,
+    required TResult orElse(),
+  }) {
+    if (getCategories != null) {
+      return getCategories(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_pickImageFromGallery value) pickImageFromGallery,
+    required TResult Function(_uploadProduct value) uploadProduct,
+    required TResult Function(_getCategories value) getCategories,
+  }) {
+    return getCategories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult? Function(_uploadProduct value)? uploadProduct,
+    TResult? Function(_getCategories value)? getCategories,
+  }) {
+    return getCategories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_pickImageFromGallery value)? pickImageFromGallery,
+    TResult Function(_uploadProduct value)? uploadProduct,
+    TResult Function(_getCategories value)? getCategories,
+    required TResult orElse(),
+  }) {
+    if (getCategories != null) {
+      return getCategories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getCategories implements AddProductEvent {
+  const factory _getCategories({required final String query}) =
+      _$getCategoriesImpl;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$getCategoriesImplCopyWith<_$getCategoriesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddProductState {
   StateResponse<XFile>? get imageFile => throw _privateConstructorUsedError;
   StateResponse<dynamic> get addProductState =>
+      throw _privateConstructorUsedError;
+  List<String> get categories => throw _privateConstructorUsedError;
+  StateResponse<List<String>> get getCategory =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -363,7 +548,9 @@ abstract class $AddProductStateCopyWith<$Res> {
   @useResult
   $Res call(
       {StateResponse<XFile>? imageFile,
-      StateResponse<dynamic> addProductState});
+      StateResponse<dynamic> addProductState,
+      List<String> categories,
+      StateResponse<List<String>> getCategory});
 }
 
 /// @nodoc
@@ -381,6 +568,8 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
   $Res call({
     Object? imageFile = freezed,
     Object? addProductState = null,
+    Object? categories = null,
+    Object? getCategory = null,
   }) {
     return _then(_value.copyWith(
       imageFile: freezed == imageFile
@@ -391,6 +580,14 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
           ? _value.addProductState
           : addProductState // ignore: cast_nullable_to_non_nullable
               as StateResponse<dynamic>,
+      categories: null == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      getCategory: null == getCategory
+          ? _value.getCategory
+          : getCategory // ignore: cast_nullable_to_non_nullable
+              as StateResponse<List<String>>,
     ) as $Val);
   }
 }
@@ -405,7 +602,9 @@ abstract class _$$AddProductStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {StateResponse<XFile>? imageFile,
-      StateResponse<dynamic> addProductState});
+      StateResponse<dynamic> addProductState,
+      List<String> categories,
+      StateResponse<List<String>> getCategory});
 }
 
 /// @nodoc
@@ -421,6 +620,8 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
   $Res call({
     Object? imageFile = freezed,
     Object? addProductState = null,
+    Object? categories = null,
+    Object? getCategory = null,
   }) {
     return _then(_$AddProductStateImpl(
       imageFile: freezed == imageFile
@@ -431,6 +632,14 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
           ? _value.addProductState
           : addProductState // ignore: cast_nullable_to_non_nullable
               as StateResponse<dynamic>,
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      getCategory: null == getCategory
+          ? _value.getCategory
+          : getCategory // ignore: cast_nullable_to_non_nullable
+              as StateResponse<List<String>>,
     ));
   }
 }
@@ -439,16 +648,30 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
 
 class _$AddProductStateImpl implements _AddProductState {
   const _$AddProductStateImpl(
-      {required this.imageFile, required this.addProductState});
+      {required this.imageFile,
+      required this.addProductState,
+      required final List<String> categories,
+      required this.getCategory})
+      : _categories = categories;
 
   @override
   final StateResponse<XFile>? imageFile;
   @override
   final StateResponse<dynamic> addProductState;
+  final List<String> _categories;
+  @override
+  List<String> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
+  @override
+  final StateResponse<List<String>> getCategory;
 
   @override
   String toString() {
-    return 'AddProductState(imageFile: $imageFile, addProductState: $addProductState)';
+    return 'AddProductState(imageFile: $imageFile, addProductState: $addProductState, categories: $categories, getCategory: $getCategory)';
   }
 
   @override
@@ -459,11 +682,16 @@ class _$AddProductStateImpl implements _AddProductState {
             (identical(other.imageFile, imageFile) ||
                 other.imageFile == imageFile) &&
             (identical(other.addProductState, addProductState) ||
-                other.addProductState == addProductState));
+                other.addProductState == addProductState) &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories) &&
+            (identical(other.getCategory, getCategory) ||
+                other.getCategory == getCategory));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, imageFile, addProductState);
+  int get hashCode => Object.hash(runtimeType, imageFile, addProductState,
+      const DeepCollectionEquality().hash(_categories), getCategory);
 
   @JsonKey(ignore: true)
   @override
@@ -476,13 +704,19 @@ class _$AddProductStateImpl implements _AddProductState {
 abstract class _AddProductState implements AddProductState {
   const factory _AddProductState(
           {required final StateResponse<XFile>? imageFile,
-          required final StateResponse<dynamic> addProductState}) =
+          required final StateResponse<dynamic> addProductState,
+          required final List<String> categories,
+          required final StateResponse<List<String>> getCategory}) =
       _$AddProductStateImpl;
 
   @override
   StateResponse<XFile>? get imageFile;
   @override
   StateResponse<dynamic> get addProductState;
+  @override
+  List<String> get categories;
+  @override
+  StateResponse<List<String>> get getCategory;
   @override
   @JsonKey(ignore: true)
   _$$AddProductStateImplCopyWith<_$AddProductStateImpl> get copyWith =>

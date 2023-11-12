@@ -41,7 +41,7 @@ class Product {
   @JsonKey(name: "product_image")
   String productImage;
   @JsonKey(name: "price")
-  String price;
+  num price;
   @JsonKey(name: "product_description")
   String productDescription;
   @JsonKey(name: "categories")

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:e_commerce/core/helpers/state_response_handler.dart';
@@ -38,8 +37,7 @@ class UserAuthImplimentation extends UserAuthenticationServices {
         await GraphQlclientgenaration.graphQLClient.mutate(mutationOption);
         return StateResponse.success('SignUp succcess');
       } catch (e) {
-        log("errpr $e");
-        return StateResponse.error('SignUp failed');
+         return StateResponse.error('SignUp failed');
       }
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
@@ -76,8 +74,7 @@ class UserAuthImplimentation extends UserAuthenticationServices {
   @override
   Future<StateResponse<String?>>? sentOtp({required String email}) async {
     try {
-      log(email);
-      await otpAuth.setConfig(
+       await otpAuth.setConfig(
           appEmail: "mohammadniyas7204@gmail.com",
           appName: "TheCart",
           userEmail: email,
@@ -85,17 +82,16 @@ class UserAuthImplimentation extends UserAuthenticationServices {
           otpType: OTPType.digitsOnly);
 
       final bool response = await otpAuth.sendOTP();
-      log(response.toString());
-      if (response) {
-        log('sent');
+       if (response) {
+('sent');
         return StateResponse.success('OTP has been sent');
       } else {
-        log('Failed to sent OTP');
-        return StateResponse.error('Failed to sent OTP');
+         return StateResponse.error('Failed to sent OTP');
       }
+    } on NetworkException {
+      return StateResponse.error('Network error');
     } catch (e) {
-      log('sent otp erro $e');
-      return StateResponse.error('Failed to sent OTP');
+       return StateResponse.error('Failed to sent OTP');
     }
   }
   //verify the otp
@@ -105,14 +101,83 @@ class UserAuthImplimentation extends UserAuthenticationServices {
     try {
       final bool result = await otpAuth.verifyOTP(otp: otp);
       if (result) {
-        log('verify s');
-        return StateResponse.success("Email verified Succesfully");
+         return StateResponse.success("Email verified Succesfully");
       } else {
-        log('verify f');
-        return StateResponse.error("Invalid Otp");
+         return StateResponse.error("Invalid Otp");
       }
+    } on NetworkException {
+      return StateResponse.error('Network error');
     } catch (e) {
       return StateResponse.error("Email verification failed");
+    }
+  }
+
+  @override
+  Future<StateResponse<String?>>? getUserEmail(
+      {required String userName}) async {
+    try {
+      final getUser = GetUserEamilQuery(userName);
+      final mutationOption =
+          MutationOptions(document: gql(getUser.getuserEMailQuery));
+      final getResponse =
+          await GraphQlclientgenaration.graphQLClient.mutate(mutationOption);
+      final String email = getResponse.data!["users"][0]["email"];
+      return StateResponse.success(email);
+    } on FirebaseAuthException catch (e) {
+      return StateResponse.error(e.message);
+    } on NetworkException {
+      return StateResponse.error('Network error');
+    } catch (e) {
+       return StateResponse.error('User not found');
+    }
+  }
+
+  @override
+  Future<StateResponse<bool>>? checkUserName({required String userName}) async {
+    try {
+      final checkUser = CheckUserName(userName);
+      final mutationOption =
+          MutationOptions(document: gql(checkUser.checkUserNameQuery));
+      final getResponse =
+          await GraphQlclientgenaration.graphQLClient.mutate(mutationOption);
+      List users = getResponse.data!["users"];
+      bool check = users.isEmpty;
+      if (check) {
+        return StateResponse.success(check);
+      } else {
+        return StateResponse.error('User name exist Try onother one');
+      }
+    } on NetworkException {
+      return StateResponse.error('Network error');
+    } catch (e) {
+       return StateResponse.error('Failed fecth user data');
+    }
+  }
+
+  @override
+  Future<StateResponse> userLogout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+
+      return StateResponse.success(null);
+    } catch (e) {
+      return StateResponse.error('SignOut Failed');
+    }
+  }
+
+  //check user login or not
+  @override
+  Future<StateResponse<String?>> checkLogin() async {
+    try {
+      User? currentUser = FirebaseAuth.instance.currentUser;
+
+      if (currentUser != null) {
+        return StateResponse.success(currentUser.uid);
+      } else {
+        return StateResponse.error('User not loged');
+      }
+    } catch (e) {
+      return StateResponse.error('Error on checking login');
     }
   }
 }

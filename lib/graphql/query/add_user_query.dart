@@ -11,3 +11,29 @@ affected_rows
     }''';
   }
 }
+
+class GetUserEamilQuery {
+  final String userName;
+  GetUserEamilQuery(this.userName);
+  String get getuserEMailQuery {
+    return '''query My_addUserQuery {
+  users(where: {user_name: {_eq: "$userName"}}) {
+    email
+  }
+}
+''';
+  }
+}
+
+class CheckUserName {
+  final String userName;
+  CheckUserName(this.userName);
+  String get checkUserNameQuery {
+    return ''' query MyQuery {
+  users(where: {user_name: {_eq: "$userName"}}) {
+  
+    user_name
+  }
+}''';
+  }
+}

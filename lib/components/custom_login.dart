@@ -66,9 +66,11 @@ class CustomLogin extends StatelessWidget {
                   SpaceSized.space10H,
                   ElevatedButton(
                       onPressed: () {
-                        // BlocProvider.of<UserAuthenticationBloc>(context).add(
-                        //     UserAuthenticationEvent.userLogin(
-                        //         controllers: controllers));
+                        BlocProvider.of<UserAuthenticationBloc>(context)
+                            .add(UserAuthenticationEvent.userLogin(
+                          userName: controllers[0].text,
+                          password: controllers[1].text,
+                        ));
                       },
                       child: CustomTextSyles.labelText('Log In')),
                 ],

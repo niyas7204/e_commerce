@@ -20,9 +20,11 @@ mixin _$UserAuthenticationEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String otp, UserAuthModel userAuthData)
         userSignUp,
-    required TResult Function(String email, String password) userLogin,
+    required TResult Function(String userName, String password) userLogin,
     required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
     required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
     required TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)
         authSelection,
@@ -31,9 +33,11 @@ mixin _$UserAuthenticationEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult? Function(String email, String password)? userLogin,
+    TResult? Function(String userName, String password)? userLogin,
     TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
     TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
     TResult? Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -42,9 +46,11 @@ mixin _$UserAuthenticationEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult Function(String email, String password)? userLogin,
+    TResult Function(String userName, String password)? userLogin,
     TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
     TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
     TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -56,7 +62,9 @@ mixin _$UserAuthenticationEvent {
     required TResult Function(_userSignUp value) userSignUp,
     required TResult Function(_userLogin value) userLogin,
     required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
     required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
     required TResult Function(_authSelection value) authSelection,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,7 +73,9 @@ mixin _$UserAuthenticationEvent {
     TResult? Function(_userSignUp value)? userSignUp,
     TResult? Function(_userLogin value)? userLogin,
     TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
     TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
     TResult? Function(_authSelection value)? authSelection,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,7 +84,9 @@ mixin _$UserAuthenticationEvent {
     TResult Function(_userSignUp value)? userSignUp,
     TResult Function(_userLogin value)? userLogin,
     TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
     TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
     TResult Function(_authSelection value)? authSelection,
     required TResult orElse(),
   }) =>
@@ -175,9 +187,11 @@ class _$userSignUpImpl implements _userSignUp {
   TResult when<TResult extends Object?>({
     required TResult Function(String otp, UserAuthModel userAuthData)
         userSignUp,
-    required TResult Function(String email, String password) userLogin,
+    required TResult Function(String userName, String password) userLogin,
     required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
     required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
     required TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)
         authSelection,
@@ -189,9 +203,11 @@ class _$userSignUpImpl implements _userSignUp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult? Function(String email, String password)? userLogin,
+    TResult? Function(String userName, String password)? userLogin,
     TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
     TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
     TResult? Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -203,9 +219,11 @@ class _$userSignUpImpl implements _userSignUp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult Function(String email, String password)? userLogin,
+    TResult Function(String userName, String password)? userLogin,
     TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
     TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
     TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -223,7 +241,9 @@ class _$userSignUpImpl implements _userSignUp {
     required TResult Function(_userSignUp value) userSignUp,
     required TResult Function(_userLogin value) userLogin,
     required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
     required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
     required TResult Function(_authSelection value) authSelection,
   }) {
     return userSignUp(this);
@@ -235,7 +255,9 @@ class _$userSignUpImpl implements _userSignUp {
     TResult? Function(_userSignUp value)? userSignUp,
     TResult? Function(_userLogin value)? userLogin,
     TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
     TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
     TResult? Function(_authSelection value)? authSelection,
   }) {
     return userSignUp?.call(this);
@@ -247,7 +269,9 @@ class _$userSignUpImpl implements _userSignUp {
     TResult Function(_userSignUp value)? userSignUp,
     TResult Function(_userLogin value)? userLogin,
     TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
     TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
     TResult Function(_authSelection value)? authSelection,
     required TResult orElse(),
   }) {
@@ -276,7 +300,7 @@ abstract class _$$userLoginImplCopyWith<$Res> {
           _$userLoginImpl value, $Res Function(_$userLoginImpl) then) =
       __$$userLoginImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String userName, String password});
 }
 
 /// @nodoc
@@ -290,13 +314,13 @@ class __$$userLoginImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
+    Object? userName = null,
     Object? password = null,
   }) {
     return _then(_$userLoginImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -309,16 +333,16 @@ class __$$userLoginImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$userLoginImpl implements _userLogin {
-  const _$userLoginImpl({required this.email, required this.password});
+  const _$userLoginImpl({required this.userName, required this.password});
 
   @override
-  final String email;
+  final String userName;
   @override
   final String password;
 
   @override
   String toString() {
-    return 'UserAuthenticationEvent.userLogin(email: $email, password: $password)';
+    return 'UserAuthenticationEvent.userLogin(userName: $userName, password: $password)';
   }
 
   @override
@@ -326,13 +350,14 @@ class _$userLoginImpl implements _userLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$userLoginImpl &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
+  int get hashCode => Object.hash(runtimeType, userName, password);
 
   @JsonKey(ignore: true)
   @override
@@ -345,44 +370,50 @@ class _$userLoginImpl implements _userLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String otp, UserAuthModel userAuthData)
         userSignUp,
-    required TResult Function(String email, String password) userLogin,
+    required TResult Function(String userName, String password) userLogin,
     required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
     required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
     required TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)
         authSelection,
   }) {
-    return userLogin(email, password);
+    return userLogin(userName, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult? Function(String email, String password)? userLogin,
+    TResult? Function(String userName, String password)? userLogin,
     TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
     TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
     TResult? Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
   }) {
-    return userLogin?.call(email, password);
+    return userLogin?.call(userName, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult Function(String email, String password)? userLogin,
+    TResult Function(String userName, String password)? userLogin,
     TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
     TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
     TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
     required TResult orElse(),
   }) {
     if (userLogin != null) {
-      return userLogin(email, password);
+      return userLogin(userName, password);
     }
     return orElse();
   }
@@ -393,7 +424,9 @@ class _$userLoginImpl implements _userLogin {
     required TResult Function(_userSignUp value) userSignUp,
     required TResult Function(_userLogin value) userLogin,
     required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
     required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
     required TResult Function(_authSelection value) authSelection,
   }) {
     return userLogin(this);
@@ -405,7 +438,9 @@ class _$userLoginImpl implements _userLogin {
     TResult? Function(_userSignUp value)? userSignUp,
     TResult? Function(_userLogin value)? userLogin,
     TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
     TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
     TResult? Function(_authSelection value)? authSelection,
   }) {
     return userLogin?.call(this);
@@ -417,7 +452,9 @@ class _$userLoginImpl implements _userLogin {
     TResult Function(_userSignUp value)? userSignUp,
     TResult Function(_userLogin value)? userLogin,
     TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
     TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
     TResult Function(_authSelection value)? authSelection,
     required TResult orElse(),
   }) {
@@ -430,10 +467,10 @@ class _$userLoginImpl implements _userLogin {
 
 abstract class _userLogin implements UserAuthenticationEvent {
   const factory _userLogin(
-      {required final String email,
+      {required final String userName,
       required final String password}) = _$userLoginImpl;
 
-  String get email;
+  String get userName;
   String get password;
   @JsonKey(ignore: true)
   _$$userLoginImplCopyWith<_$userLoginImpl> get copyWith =>
@@ -515,9 +552,11 @@ class _$addUserImpl implements _addUser {
   TResult when<TResult extends Object?>({
     required TResult Function(String otp, UserAuthModel userAuthData)
         userSignUp,
-    required TResult Function(String email, String password) userLogin,
+    required TResult Function(String userName, String password) userLogin,
     required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
     required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
     required TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)
         authSelection,
@@ -529,9 +568,11 @@ class _$addUserImpl implements _addUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult? Function(String email, String password)? userLogin,
+    TResult? Function(String userName, String password)? userLogin,
     TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
     TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
     TResult? Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -543,9 +584,11 @@ class _$addUserImpl implements _addUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult Function(String email, String password)? userLogin,
+    TResult Function(String userName, String password)? userLogin,
     TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
     TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
     TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -563,7 +606,9 @@ class _$addUserImpl implements _addUser {
     required TResult Function(_userSignUp value) userSignUp,
     required TResult Function(_userLogin value) userLogin,
     required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
     required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
     required TResult Function(_authSelection value) authSelection,
   }) {
     return addUser(this);
@@ -575,7 +620,9 @@ class _$addUserImpl implements _addUser {
     TResult? Function(_userSignUp value)? userSignUp,
     TResult? Function(_userLogin value)? userLogin,
     TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
     TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
     TResult? Function(_authSelection value)? authSelection,
   }) {
     return addUser?.call(this);
@@ -587,7 +634,9 @@ class _$addUserImpl implements _addUser {
     TResult Function(_userSignUp value)? userSignUp,
     TResult Function(_userLogin value)? userLogin,
     TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
     TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
     TResult Function(_authSelection value)? authSelection,
     required TResult orElse(),
   }) {
@@ -608,6 +657,145 @@ abstract class _addUser implements UserAuthenticationEvent {
   @JsonKey(ignore: true)
   _$$addUserImplCopyWith<_$addUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$userLogoutImplCopyWith<$Res> {
+  factory _$$userLogoutImplCopyWith(
+          _$userLogoutImpl value, $Res Function(_$userLogoutImpl) then) =
+      __$$userLogoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$userLogoutImplCopyWithImpl<$Res>
+    extends _$UserAuthenticationEventCopyWithImpl<$Res, _$userLogoutImpl>
+    implements _$$userLogoutImplCopyWith<$Res> {
+  __$$userLogoutImplCopyWithImpl(
+      _$userLogoutImpl _value, $Res Function(_$userLogoutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$userLogoutImpl implements _userLogout {
+  const _$userLogoutImpl();
+
+  @override
+  String toString() {
+    return 'UserAuthenticationEvent.userLogout()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$userLogoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String otp, UserAuthModel userAuthData)
+        userSignUp,
+    required TResult Function(String userName, String password) userLogin,
+    required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
+    required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
+    required TResult Function(
+            List<TextEditingController> controllers, AuthSelection selection)
+        authSelection,
+  }) {
+    return userLogout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
+    TResult? Function(String userName, String password)? userLogin,
+    TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
+    TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
+    TResult? Function(
+            List<TextEditingController> controllers, AuthSelection selection)?
+        authSelection,
+  }) {
+    return userLogout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
+    TResult Function(String userName, String password)? userLogin,
+    TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
+    TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
+    TResult Function(
+            List<TextEditingController> controllers, AuthSelection selection)?
+        authSelection,
+    required TResult orElse(),
+  }) {
+    if (userLogout != null) {
+      return userLogout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_userSignUp value) userSignUp,
+    required TResult Function(_userLogin value) userLogin,
+    required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
+    required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
+    required TResult Function(_authSelection value) authSelection,
+  }) {
+    return userLogout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_userSignUp value)? userSignUp,
+    TResult? Function(_userLogin value)? userLogin,
+    TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
+    TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
+    TResult? Function(_authSelection value)? authSelection,
+  }) {
+    return userLogout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_userSignUp value)? userSignUp,
+    TResult Function(_userLogin value)? userLogin,
+    TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
+    TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
+    TResult Function(_authSelection value)? authSelection,
+    required TResult orElse(),
+  }) {
+    if (userLogout != null) {
+      return userLogout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _userLogout implements UserAuthenticationEvent {
+  const factory _userLogout() = _$userLogoutImpl;
 }
 
 /// @nodoc
@@ -684,9 +872,11 @@ class _$sentOtpImpl implements _sentOtp {
   TResult when<TResult extends Object?>({
     required TResult Function(String otp, UserAuthModel userAuthData)
         userSignUp,
-    required TResult Function(String email, String password) userLogin,
+    required TResult Function(String userName, String password) userLogin,
     required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
     required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
     required TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)
         authSelection,
@@ -698,9 +888,11 @@ class _$sentOtpImpl implements _sentOtp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult? Function(String email, String password)? userLogin,
+    TResult? Function(String userName, String password)? userLogin,
     TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
     TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
     TResult? Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -712,9 +904,11 @@ class _$sentOtpImpl implements _sentOtp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult Function(String email, String password)? userLogin,
+    TResult Function(String userName, String password)? userLogin,
     TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
     TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
     TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -732,7 +926,9 @@ class _$sentOtpImpl implements _sentOtp {
     required TResult Function(_userSignUp value) userSignUp,
     required TResult Function(_userLogin value) userLogin,
     required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
     required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
     required TResult Function(_authSelection value) authSelection,
   }) {
     return sentOtp(this);
@@ -744,7 +940,9 @@ class _$sentOtpImpl implements _sentOtp {
     TResult? Function(_userSignUp value)? userSignUp,
     TResult? Function(_userLogin value)? userLogin,
     TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
     TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
     TResult? Function(_authSelection value)? authSelection,
   }) {
     return sentOtp?.call(this);
@@ -756,7 +954,9 @@ class _$sentOtpImpl implements _sentOtp {
     TResult Function(_userSignUp value)? userSignUp,
     TResult Function(_userLogin value)? userLogin,
     TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
     TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
     TResult Function(_authSelection value)? authSelection,
     required TResult orElse(),
   }) {
@@ -775,6 +975,145 @@ abstract class _sentOtp implements UserAuthenticationEvent {
   @JsonKey(ignore: true)
   _$$sentOtpImplCopyWith<_$sentOtpImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$checkUserLogedImplCopyWith<$Res> {
+  factory _$$checkUserLogedImplCopyWith(_$checkUserLogedImpl value,
+          $Res Function(_$checkUserLogedImpl) then) =
+      __$$checkUserLogedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$checkUserLogedImplCopyWithImpl<$Res>
+    extends _$UserAuthenticationEventCopyWithImpl<$Res, _$checkUserLogedImpl>
+    implements _$$checkUserLogedImplCopyWith<$Res> {
+  __$$checkUserLogedImplCopyWithImpl(
+      _$checkUserLogedImpl _value, $Res Function(_$checkUserLogedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$checkUserLogedImpl implements _checkUserLoged {
+  const _$checkUserLogedImpl();
+
+  @override
+  String toString() {
+    return 'UserAuthenticationEvent.checkUserLoged()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$checkUserLogedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String otp, UserAuthModel userAuthData)
+        userSignUp,
+    required TResult Function(String userName, String password) userLogin,
+    required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
+    required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
+    required TResult Function(
+            List<TextEditingController> controllers, AuthSelection selection)
+        authSelection,
+  }) {
+    return checkUserLoged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
+    TResult? Function(String userName, String password)? userLogin,
+    TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
+    TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
+    TResult? Function(
+            List<TextEditingController> controllers, AuthSelection selection)?
+        authSelection,
+  }) {
+    return checkUserLoged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
+    TResult Function(String userName, String password)? userLogin,
+    TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
+    TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
+    TResult Function(
+            List<TextEditingController> controllers, AuthSelection selection)?
+        authSelection,
+    required TResult orElse(),
+  }) {
+    if (checkUserLoged != null) {
+      return checkUserLoged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_userSignUp value) userSignUp,
+    required TResult Function(_userLogin value) userLogin,
+    required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
+    required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
+    required TResult Function(_authSelection value) authSelection,
+  }) {
+    return checkUserLoged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_userSignUp value)? userSignUp,
+    TResult? Function(_userLogin value)? userLogin,
+    TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
+    TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
+    TResult? Function(_authSelection value)? authSelection,
+  }) {
+    return checkUserLoged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_userSignUp value)? userSignUp,
+    TResult Function(_userLogin value)? userLogin,
+    TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
+    TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
+    TResult Function(_authSelection value)? authSelection,
+    required TResult orElse(),
+  }) {
+    if (checkUserLoged != null) {
+      return checkUserLoged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _checkUserLoged implements UserAuthenticationEvent {
+  const factory _checkUserLoged() = _$checkUserLogedImpl;
 }
 
 /// @nodoc
@@ -863,9 +1202,11 @@ class _$authSelectionImpl implements _authSelection {
   TResult when<TResult extends Object?>({
     required TResult Function(String otp, UserAuthModel userAuthData)
         userSignUp,
-    required TResult Function(String email, String password) userLogin,
+    required TResult Function(String userName, String password) userLogin,
     required TResult Function(String userName, String userId) addUser,
+    required TResult Function() userLogout,
     required TResult Function(List<TextEditingController> controllers) sentOtp,
+    required TResult Function() checkUserLoged,
     required TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)
         authSelection,
@@ -877,9 +1218,11 @@ class _$authSelectionImpl implements _authSelection {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult? Function(String email, String password)? userLogin,
+    TResult? Function(String userName, String password)? userLogin,
     TResult? Function(String userName, String userId)? addUser,
+    TResult? Function()? userLogout,
     TResult? Function(List<TextEditingController> controllers)? sentOtp,
+    TResult? Function()? checkUserLoged,
     TResult? Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -891,9 +1234,11 @@ class _$authSelectionImpl implements _authSelection {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String otp, UserAuthModel userAuthData)? userSignUp,
-    TResult Function(String email, String password)? userLogin,
+    TResult Function(String userName, String password)? userLogin,
     TResult Function(String userName, String userId)? addUser,
+    TResult Function()? userLogout,
     TResult Function(List<TextEditingController> controllers)? sentOtp,
+    TResult Function()? checkUserLoged,
     TResult Function(
             List<TextEditingController> controllers, AuthSelection selection)?
         authSelection,
@@ -911,7 +1256,9 @@ class _$authSelectionImpl implements _authSelection {
     required TResult Function(_userSignUp value) userSignUp,
     required TResult Function(_userLogin value) userLogin,
     required TResult Function(_addUser value) addUser,
+    required TResult Function(_userLogout value) userLogout,
     required TResult Function(_sentOtp value) sentOtp,
+    required TResult Function(_checkUserLoged value) checkUserLoged,
     required TResult Function(_authSelection value) authSelection,
   }) {
     return authSelection(this);
@@ -923,7 +1270,9 @@ class _$authSelectionImpl implements _authSelection {
     TResult? Function(_userSignUp value)? userSignUp,
     TResult? Function(_userLogin value)? userLogin,
     TResult? Function(_addUser value)? addUser,
+    TResult? Function(_userLogout value)? userLogout,
     TResult? Function(_sentOtp value)? sentOtp,
+    TResult? Function(_checkUserLoged value)? checkUserLoged,
     TResult? Function(_authSelection value)? authSelection,
   }) {
     return authSelection?.call(this);
@@ -935,7 +1284,9 @@ class _$authSelectionImpl implements _authSelection {
     TResult Function(_userSignUp value)? userSignUp,
     TResult Function(_userLogin value)? userLogin,
     TResult Function(_addUser value)? addUser,
+    TResult Function(_userLogout value)? userLogout,
     TResult Function(_sentOtp value)? sentOtp,
+    TResult Function(_checkUserLoged value)? checkUserLoged,
     TResult Function(_authSelection value)? authSelection,
     required TResult orElse(),
   }) {
@@ -962,8 +1313,10 @@ abstract class _authSelection implements UserAuthenticationEvent {
 mixin _$UserAuthenticationState {
   StateResponse<String>? get signupState => throw _privateConstructorUsedError;
   StateResponse<String>? get sentOtp => throw _privateConstructorUsedError;
+  StateResponse<String?>? get logedUser => throw _privateConstructorUsedError;
   UserAuthModel? get userAuthData => throw _privateConstructorUsedError;
   StateResponse<String>? get loginState => throw _privateConstructorUsedError;
+  StateResponse<dynamic> get userLogout => throw _privateConstructorUsedError;
   AuthSelection? get authSelection => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -980,8 +1333,10 @@ abstract class $UserAuthenticationStateCopyWith<$Res> {
   $Res call(
       {StateResponse<String>? signupState,
       StateResponse<String>? sentOtp,
+      StateResponse<String?>? logedUser,
       UserAuthModel? userAuthData,
       StateResponse<String>? loginState,
+      StateResponse<dynamic> userLogout,
       AuthSelection? authSelection});
 }
 
@@ -1001,8 +1356,10 @@ class _$UserAuthenticationStateCopyWithImpl<$Res,
   $Res call({
     Object? signupState = freezed,
     Object? sentOtp = freezed,
+    Object? logedUser = freezed,
     Object? userAuthData = freezed,
     Object? loginState = freezed,
+    Object? userLogout = null,
     Object? authSelection = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1014,6 +1371,10 @@ class _$UserAuthenticationStateCopyWithImpl<$Res,
           ? _value.sentOtp
           : sentOtp // ignore: cast_nullable_to_non_nullable
               as StateResponse<String>?,
+      logedUser: freezed == logedUser
+          ? _value.logedUser
+          : logedUser // ignore: cast_nullable_to_non_nullable
+              as StateResponse<String?>?,
       userAuthData: freezed == userAuthData
           ? _value.userAuthData
           : userAuthData // ignore: cast_nullable_to_non_nullable
@@ -1022,6 +1383,10 @@ class _$UserAuthenticationStateCopyWithImpl<$Res,
           ? _value.loginState
           : loginState // ignore: cast_nullable_to_non_nullable
               as StateResponse<String>?,
+      userLogout: null == userLogout
+          ? _value.userLogout
+          : userLogout // ignore: cast_nullable_to_non_nullable
+              as StateResponse<dynamic>,
       authSelection: freezed == authSelection
           ? _value.authSelection
           : authSelection // ignore: cast_nullable_to_non_nullable
@@ -1042,8 +1407,10 @@ abstract class _$$userAuthenticationStateImplCopyWith<$Res>
   $Res call(
       {StateResponse<String>? signupState,
       StateResponse<String>? sentOtp,
+      StateResponse<String?>? logedUser,
       UserAuthModel? userAuthData,
       StateResponse<String>? loginState,
+      StateResponse<dynamic> userLogout,
       AuthSelection? authSelection});
 }
 
@@ -1062,8 +1429,10 @@ class __$$userAuthenticationStateImplCopyWithImpl<$Res>
   $Res call({
     Object? signupState = freezed,
     Object? sentOtp = freezed,
+    Object? logedUser = freezed,
     Object? userAuthData = freezed,
     Object? loginState = freezed,
+    Object? userLogout = null,
     Object? authSelection = freezed,
   }) {
     return _then(_$userAuthenticationStateImpl(
@@ -1075,6 +1444,10 @@ class __$$userAuthenticationStateImplCopyWithImpl<$Res>
           ? _value.sentOtp
           : sentOtp // ignore: cast_nullable_to_non_nullable
               as StateResponse<String>?,
+      logedUser: freezed == logedUser
+          ? _value.logedUser
+          : logedUser // ignore: cast_nullable_to_non_nullable
+              as StateResponse<String?>?,
       userAuthData: freezed == userAuthData
           ? _value.userAuthData
           : userAuthData // ignore: cast_nullable_to_non_nullable
@@ -1083,6 +1456,10 @@ class __$$userAuthenticationStateImplCopyWithImpl<$Res>
           ? _value.loginState
           : loginState // ignore: cast_nullable_to_non_nullable
               as StateResponse<String>?,
+      userLogout: null == userLogout
+          ? _value.userLogout
+          : userLogout // ignore: cast_nullable_to_non_nullable
+              as StateResponse<dynamic>,
       authSelection: freezed == authSelection
           ? _value.authSelection
           : authSelection // ignore: cast_nullable_to_non_nullable
@@ -1097,8 +1474,10 @@ class _$userAuthenticationStateImpl implements userAuthenticationState {
   const _$userAuthenticationStateImpl(
       {required this.signupState,
       required this.sentOtp,
+      required this.logedUser,
       required this.userAuthData,
       required this.loginState,
+      required this.userLogout,
       required this.authSelection});
 
   @override
@@ -1106,15 +1485,19 @@ class _$userAuthenticationStateImpl implements userAuthenticationState {
   @override
   final StateResponse<String>? sentOtp;
   @override
+  final StateResponse<String?>? logedUser;
+  @override
   final UserAuthModel? userAuthData;
   @override
   final StateResponse<String>? loginState;
+  @override
+  final StateResponse<dynamic> userLogout;
   @override
   final AuthSelection? authSelection;
 
   @override
   String toString() {
-    return 'UserAuthenticationState(signupState: $signupState, sentOtp: $sentOtp, userAuthData: $userAuthData, loginState: $loginState, authSelection: $authSelection)';
+    return 'UserAuthenticationState(signupState: $signupState, sentOtp: $sentOtp, logedUser: $logedUser, userAuthData: $userAuthData, loginState: $loginState, userLogout: $userLogout, authSelection: $authSelection)';
   }
 
   @override
@@ -1125,17 +1508,21 @@ class _$userAuthenticationStateImpl implements userAuthenticationState {
             (identical(other.signupState, signupState) ||
                 other.signupState == signupState) &&
             (identical(other.sentOtp, sentOtp) || other.sentOtp == sentOtp) &&
+            (identical(other.logedUser, logedUser) ||
+                other.logedUser == logedUser) &&
             (identical(other.userAuthData, userAuthData) ||
                 other.userAuthData == userAuthData) &&
             (identical(other.loginState, loginState) ||
                 other.loginState == loginState) &&
+            (identical(other.userLogout, userLogout) ||
+                other.userLogout == userLogout) &&
             (identical(other.authSelection, authSelection) ||
                 other.authSelection == authSelection));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, signupState, sentOtp,
-      userAuthData, loginState, authSelection);
+  int get hashCode => Object.hash(runtimeType, signupState, sentOtp, logedUser,
+      userAuthData, loginState, userLogout, authSelection);
 
   @JsonKey(ignore: true)
   @override
@@ -1149,8 +1536,10 @@ abstract class userAuthenticationState implements UserAuthenticationState {
   const factory userAuthenticationState(
           {required final StateResponse<String>? signupState,
           required final StateResponse<String>? sentOtp,
+          required final StateResponse<String?>? logedUser,
           required final UserAuthModel? userAuthData,
           required final StateResponse<String>? loginState,
+          required final StateResponse<dynamic> userLogout,
           required final AuthSelection? authSelection}) =
       _$userAuthenticationStateImpl;
 
@@ -1159,9 +1548,13 @@ abstract class userAuthenticationState implements UserAuthenticationState {
   @override
   StateResponse<String>? get sentOtp;
   @override
+  StateResponse<String?>? get logedUser;
+  @override
   UserAuthModel? get userAuthData;
   @override
   StateResponse<String>? get loginState;
+  @override
+  StateResponse<dynamic> get userLogout;
   @override
   AuthSelection? get authSelection;
   @override
