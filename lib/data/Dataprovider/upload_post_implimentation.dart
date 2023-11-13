@@ -24,9 +24,9 @@ class UploadProductImplimentation extends UploadProductServices {
       String imageUrl = await snapShot.ref.getDownloadURL();
       return StateResponse.success(imageUrl);
     } on FirebaseException {
-       return StateResponse.error('failed to sore');
+      return StateResponse.error('failed to sore');
     } catch (e) {
-       return StateResponse.error('failed to sore');
+      return StateResponse.error('failed to sore');
     }
   }
 
@@ -36,9 +36,9 @@ class UploadProductImplimentation extends UploadProductServices {
     try {
       final ImagePicker imagePicker = ImagePicker();
       imageFile = await imagePicker.pickImage(source: ImageSource.gallery);
-       return StateResponse.success(imageFile);
+      return StateResponse.success(imageFile);
     } catch (e) {
-       return StateResponse.error('Failed to pick Image from gallery');
+      return StateResponse.error('Failed to pick Image from gallery');
     }
   }
 
@@ -48,45 +48,61 @@ class UploadProductImplimentation extends UploadProductServices {
     required String userId,
   }) async {
     try {
- 
+      final getQuery = GetAllProductQuery(userId);
       final uploadproduct = UploadProducQuery(product, userId);
       final mutationOption = MutationOptions(
-          document: gql(uploadproduct.uploadProductMutation),
+          document: gql(
+            uploadproduct.uploadProductMutation,
+          ),
+          update: (cache, result) {
+            final data = cache.readQuery(
+                QueryOptions(document: gql(getQuery.getAllPorductQuery))
+                    .asRequest);
+            List products = data!["products"];
+            products.addAll(result!.data!["insert_products"]["returning"]);
+            final updateddata = Map<String, dynamic>.from(data);
+
+            updateddata["products"] = products;
+            cache.writeQuery(
+                QueryOptions(document: gql(getQuery.getAllPorductQuery))
+                    .asRequest,
+                data: updateddata);
+          },
           fetchPolicy: FetchPolicy.networkOnly);
       final uploadResponse =
           await GraphQlclientgenaration.graphQLClient.mutate(mutationOption);
-       if (uploadResponse.hasException) {
+      if (uploadResponse.hasException) {
         return StateResponse.error(
             "Product name and code should be unique try another one");
       } else {
         return StateResponse.success(null);
       }
     } catch (e) {
-       return StateResponse.error('Failed to upload Post');
+      return StateResponse.error('Failed to upload Post');
     }
   }
 
   @override
   Future<StateResponse<List<String>>> findCatorories(
       {required String query}) async {
-     try {
+    try {
       List<String> categoriesList = [];
       final getCategory = GetAllCategories(query);
       final queryOption =
           QueryOptions(document: gql(getCategory.getAllcategoriesQuery));
       final getResponse =
           await GraphQlclientgenaration.graphQLClient.query(queryOption);
-       final categories = Categories.fromJson(getResponse.data!);
+      final categories = Categories.fromJson(getResponse.data!);
       if (categories.products!.isNotEmpty || categories.products != null) {
         for (var element in categories.products!) {
           categoriesList.add(element.categories);
         }
       }
-       return StateResponse.success(categoriesList.toSet().toList());
+      return StateResponse.success(categoriesList.toSet().toList());
     } on SocketException {
       return StateResponse.error("Network Failure");
     } catch (e) {
-       return StateResponse.error("Failed to fetch categories");
+      return StateResponse.error("Failed to fetch categories");
     }
   }
 }

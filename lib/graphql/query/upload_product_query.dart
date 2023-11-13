@@ -8,7 +8,16 @@ class UploadProducQuery {
     return '''mutation MyMutation {
   insert_products(objects: {categories: "${product.categories}", price: ${product.price}, product_code: "${product.productCode}",
    product_description: "${product.productDescription}", product_id: "${product.productId}", vender_id: "$userId", product_name: "${product.productName}", product_image: "${product.productImage}"}) {
-    affected_rows
+   returning {
+      categories
+      price
+      product_code
+      product_description
+      product_id
+      product_image
+      product_name
+    
+    }
   }
 }
 

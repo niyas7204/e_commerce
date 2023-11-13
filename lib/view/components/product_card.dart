@@ -44,7 +44,9 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SpaceSized.space5H,
-                  CustomTextSyles.nameText(product.productName),
+                  CustomTextSyles.nameText(
+                      product.productName[0].toUpperCase() +
+                          product.productName.substring(1)),
                   SpaceSized.space5H,
                   CustomTextSyles.nameText("\u20B9 ${product.price}"),
                 ],

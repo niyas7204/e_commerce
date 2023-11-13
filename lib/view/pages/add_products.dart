@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:e_commerce/components/alert_diologs.dart';
 import 'package:e_commerce/controllers/add_product/add_product_bloc.dart';
+import 'package:e_commerce/controllers/get_products/getproduct_bloc.dart';
 import 'package:e_commerce/core/enums/enums.dart';
 import 'package:e_commerce/view/utils/constants/sizes.dart';
 import 'package:e_commerce/view/utils/custom_texts_styles.dart';
@@ -49,6 +50,8 @@ class AddProductPage extends StatelessWidget {
       body: BlocConsumer<AddProductBloc, AddProductState>(
         listener: (context, state) {
           if (state.addProductState.status == StateStatus.success) {
+            BlocProvider.of<GetproductBloc>(context)
+                .add(GetproductEvent.getAllProducts(userId: userId));
             alertcontroller.warningAlert("Product upload success");
           } else if (state.addProductState.status == StateStatus.error) {
             alertcontroller.warningAlert(state.addProductState.errorMessage!);
