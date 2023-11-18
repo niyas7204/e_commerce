@@ -2,6 +2,7 @@ import 'package:e_commerce/components/alert_diologs.dart';
 import 'package:e_commerce/controllers/authentication_bloc/user_authentication_bloc.dart';
 import 'package:e_commerce/core/enums/enums.dart';
 import 'package:e_commerce/view/pages/add_products.dart';
+import 'package:e_commerce/view/pages/all_products_page.dart';
 import 'package:e_commerce/view/utils/constants/sizes.dart';
 import 'package:e_commerce/view/utils/custom_texts_styles.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class VerifyOTP extends StatelessWidget {
           listener: (context, state) {
             if (state.signupState!.status == StateStatus.success) {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => AddProductPage(
+                builder: (context) => AllProducts(
                   userId: state.signupState!.data!,
                 ),
               ));
